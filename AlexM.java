@@ -1,6 +1,7 @@
 public class AlexM {
 
-    public static void main(String[] args) {
+    public AlexM(){
+
         System.out.println("Alex Meci");
     }
 }

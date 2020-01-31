@@ -1,6 +1,6 @@
 public class Colby {
 
-    public static void main(String[] args) {
+    public Colby(){
         System.out.println("Colby");
     }
 
