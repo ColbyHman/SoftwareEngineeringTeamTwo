@@ -1,0 +1,19 @@
+Example URL for Map Generation : https://www.mapquestapi.com/staticmap/v5/map?key=UDxbwAfazAkmB9R6pD6gdkK9hCgVhAB1&center=1125.+Monocacy+St,+Bethlehem,+PA+18018&locations=1315+Iron+St,+Bethlehem,+PA+18018|marker-end||1125+Monocacy+St.,+Bethlehem,+PA+18018|flag-HUB&zoom=16&type=map
+
+Key : UDxbwAfazAkmB9R6pD6gdkK9hCgVhAB1
+- Used for API Calls
+
+Center : This is the focal point of the map
+- We can try to figure out the best center points based on the crime location, maybe use notable MoCo buildings for reference
+
+Locations : The following format is used "address|marker-style||address|marker-style"
+- The locations to include are a notable building and the crime location
+- Will try to figure out how to create a radius if need be
+
+Zoom : 14 or 16 are preferable values for zoom
+
+Type : type of image - hybr, map, sat
+- Map looks cleanest
+
+More info available here :
+https://developer.mapquest.com/documentation/static-map-api/v5/getting-started/
