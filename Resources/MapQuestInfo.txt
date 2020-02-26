@@ -1,4 +1,4 @@
-Example URL for Map Generation : https://www.mapquestapi.com/staticmap/v5/map?key=UDxbwAfazAkmB9R6pD6gdkK9hCgVhAB1&center=1125.+Monocacy+St,+Bethlehem,+PA+18018&locations=1315+Iron+St,+Bethlehem,+PA+18018|marker-end||1125+Monocacy+St.,+Bethlehem,+PA+18018|flag-HUB&zoom=16&type=map
+Example URL for Map Generation : https://www.mapquestapi.com/staticmap/v5/map?key=UDxbwAfazAkmB9R6pD6gdkK9hCgVhAB1&center=1125+Monocacy+St,+Bethlehem,+PA+18018&locations=1315+Iron+St,+Bethlehem,+PA+18018|marker-end||1125+Monocacy+St.,+Bethlehem,+PA+18018|flag-HUB&zoom=16&type=map
 
 Key : UDxbwAfazAkmB9R6pD6gdkK9hCgVhAB1
 - Used for API Calls
