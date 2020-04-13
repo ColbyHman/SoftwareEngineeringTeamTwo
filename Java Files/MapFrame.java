@@ -1,25 +1,37 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class MapFrame extends JFrame {
 
+    private BufferedImage image;
 
     public static void main(String[] args) {
         MapFrame mp = new MapFrame();
         mp.setVisible(true);
     }
 
-    public MapFrame()
-
-    {
+    public MapFrame() {
+        MapsTest mapsTest = new MapsTest();
+        try {
+            mapsTest.createImage();
+            image = ImageIO.read(new File("resources/image.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         JFrame frame = new JFrame("Test For Map Frame");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setOpaque(true);
+        JLabel pictureLabel = new JLabel(new ImageIcon(image));
+        panel.add(pictureLabel);
         JTextArea textArea = new JTextArea(15, 50);
         textArea.setWrapStyleWord(true);
         textArea.setEditable(false);
@@ -40,4 +52,5 @@ public class MapFrame extends JFrame {
         frame.setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
 }

@@ -32,12 +32,16 @@ public class MapsTest {
             locations.add(data);
         }
 
-        return null;
+        return locations;
     }
 
-    public static void main(String[] args) throws IOException {
-        MapsTest map = new MapsTest();
-        ArrayList<String[]> locations = map.generateLocationList();
+    public void createImage() throws IOException {
+        ArrayList<String[]> locations = null;
+        try {
+            locations = this.generateLocationList();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         String desiredLocation = "Colonial Hall";
         String crimeLocation = "Hillside VI";
@@ -58,9 +62,9 @@ public class MapsTest {
             }
         }
 
-        String processedAddress = map.processString(desiredAddress, true);
-        String processedCrimeAddress = map.processString(crimeAddress, true);
-        String processedDesiredLocation = map.processString(desiredLocation, false);
+        String processedAddress = this.processString(desiredAddress, true);
+        String processedCrimeAddress = this.processString(crimeAddress, true);
+        String processedDesiredLocation = this.processString(desiredLocation, false);
 
         //Process data to create URL
         String zoom = "16";
