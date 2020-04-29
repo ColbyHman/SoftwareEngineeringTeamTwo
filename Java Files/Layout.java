@@ -3,6 +3,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
 
 public class Layout extends JFrame  {
@@ -10,12 +11,12 @@ public class Layout extends JFrame  {
     JButton next;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Layout mylayout = new Layout();
         mylayout.setVisible(true);
     }
 
-  public Layout(){
+  public Layout() throws FileNotFoundException {
        setTitle("Please Enter a Description");
        setSize(400,470);
        setLocation(100,100);

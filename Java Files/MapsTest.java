@@ -1,6 +1,7 @@
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.net.*;
 
@@ -23,44 +24,28 @@ public class MapsTest {
     }
 
 
-    public ArrayList<String[]> generateLocationList() throws FileNotFoundException {
+    public HashMap generateLocationList() throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("resources/locations.csv"));
-        ArrayList<String[]> locations = new ArrayList();
+        HashMap locations = new HashMap();
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
             String[] data = line.split(",");
-            locations.add(data);
+            locations.put(data[0], data[1]);
         }
 
         return locations;
     }
 
-    public void createImage() throws IOException {
-        ArrayList<String[]> locations = null;
-        try {
-            locations = this.generateLocationList();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        String desiredLocation = "Colonial Hall";
-        String crimeLocation = "Hillside VI";
-        String desiredAddress = "";
+    public void createImage(String location) throws IOException {
         String crimeAddress = "";
+        HashMap locations = generateLocationList();
+        if(locations.get(location) != null){
+            crimeAddress = (String) locations.get(location);
+            System.out.println(crimeAddress);
 
-        for(int i = 0; i < locations.size(); i++){
-            String[] line = locations.get(i);
-            if(line[0].equals(desiredLocation)) {
-                System.out.println("Location Name : " + line[0] + "\n\t\t Address : " + line[1]);
-                desiredAddress = line[1];
-                System.out.println(desiredAddress);
-            }
-            if(line[0].equals(crimeLocation)) {
-                System.out.println("Location Name : " + line[0] + "\n\t\t Address : " + line[1]);
-                crimeAddress = line[1];
-                System.out.println(crimeAddress);
-            }
         }
+        String desiredLocation = "Haupert Union Building (HUB)";
+        String desiredAddress = "1125 Monocacy St.";
 
         String processedAddress = this.processString(desiredAddress, true);
         String processedCrimeAddress = this.processString(crimeAddress, true);
@@ -75,8 +60,6 @@ public class MapsTest {
         String typeOfMap = "map";
         String banner = "Event+in+Relation+to+:+"+processedDesiredLocation+"|lg-top-3B5998-22407F";
         String size = "800,800";
-
-
 
         System.out.println(processedAddress);
         System.out.println(processedCrimeAddress);

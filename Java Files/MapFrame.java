@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MapFrame extends JFrame {
 
@@ -20,7 +21,7 @@ public class MapFrame extends JFrame {
     public MapFrame() {
         MapsTest mapsTest = new MapsTest();
         try {
-            mapsTest.createImage();
+            mapsTest.createImage("1206 Main St.");
             image = ImageIO.read(new File("resources/image.png"));
         } catch (IOException e) {
             e.printStackTrace();
