@@ -39,22 +39,30 @@ public class ComboBox extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == tiplist) {
+        if (e.getSource() == loc1) {
             JComboBox c = (JComboBox) e.getSource();
             String message = (String) c.getSelectedItem();
-            switch (message) {
-                case "Tip 1":
-                    text.setText("You have selected tip 1");
-                    break;
-                case "Tip 2":
-                    text.setText("You have selected tip 2");
-                    break;
-                case "Tip 3":
-                    text.setText("You have selected tip 3");
-                    break;
-                default:
-                    text.setText("Whoops: There seems to be an error");
-            }
         }
+
+
+
+
+//        if (e.getSource() == tiplist) {
+//            JComboBox c = (JComboBox) e.getSource();
+//            String message = (String) c.getSelectedItem();
+//            switch (message) {
+//                case "Suspicious":
+//                    text.setText("If anyone has seen anything or has any information regarding this incident, please call Bethlehem PD at 610-746-1555. Remember to always be alert and vigilant and report anything suspicious. More information will be passed on as we are updated.");
+//                    break;
+//                case "Tip 2":
+//                    text.setText("You have selected tip 2");
+//                    break;
+//                case "Tip 3":
+//                    text.setText("You have selected tip 3");
+//                    break;
+//                default:
+//                    text.setText("Whoops: There seems to be an error");
+//            }
+//        }
     }
 }
