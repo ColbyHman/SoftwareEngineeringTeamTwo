@@ -39,9 +39,11 @@ public class Layout extends JFrame  {
 
       JPanel tips = new JPanel();
       ComboBox tiplist = new ComboBox();
+      ComboBox loc1 = new ComboBox();
       tips.setBorder(new LineBorder(Color.BLACK, 3));
       tips.setLayout(new FlowLayout());
-      tips.add(tiplist);
+      //tips.add(tiplist);
+      tips.add(loc1);
       myContainer.add(tips,BorderLayout.CENTER);
 
       JPanel enter = new JPanel();
