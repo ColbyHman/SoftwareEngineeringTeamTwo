@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,8 +8,6 @@ import java.io.FileNotFoundException;
 
 
 public class Layout extends JFrame  {
-    JButton back;
-    JButton next;
 
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -18,37 +17,31 @@ public class Layout extends JFrame  {
 
   public Layout() throws FileNotFoundException {
        setTitle("Please Enter a Description");
-       setSize(400,470);
+       setSize(950,470);
        setLocation(100,100);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-      back = new JButton("Back");
-      next = new JButton("Next");
-      JTextArea field1 = new JTextArea(18,32);
-      //field1.setSize(300,200);
+      JTextArea field1 = new JTextArea(18,75);
 
       Container myContainer = this.getContentPane();
       myContainer.setLayout(new BorderLayout(10,10));
-      this.getRootPane().setBorder(BorderFactory.createMatteBorder(4,4,4,4, Color.CYAN));
+      //this.getRootPane().setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
 
       JPanel desc = new JPanel();
-      desc.setBorder(new LineBorder(Color.BLACK, 3));
+      desc.setBorder(BorderFactory.createEtchedBorder());
+      desc.setOpaque(false);
       desc.setLayout(new FlowLayout());
       desc.add(field1);
-      myContainer.add(desc, BorderLayout.NORTH);
+      myContainer.add(desc, BorderLayout.CENTER);
 
 
       JPanel tips = new JPanel();
-      ComboBox tiplist = new ComboBox();
       ComboBox loc1 = new ComboBox();
-      tips.setBorder(new LineBorder(Color.BLACK, 3));
-      tips.setLayout(new FlowLayout());
-      //tips.add(tiplist);
+      tips.setSize(700, 300);
       tips.add(loc1);
-      myContainer.add(tips,BorderLayout.CENTER);
+      myContainer.add(tips,BorderLayout.NORTH);
 
       JPanel enter = new JPanel();
-      desc.setBorder(new LineBorder(Color.BLACK, 3));
       desc.setLayout(new FlowLayout());
       JButton enterb = new JButton("Enter");
       enterb.setPreferredSize(new Dimension(380,50));
