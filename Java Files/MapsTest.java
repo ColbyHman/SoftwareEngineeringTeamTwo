@@ -18,7 +18,7 @@ public class MapsTest {
             processedString += "+";
         }
         if(bool)
-            processedString += "Bethlehem,+PA+18018";
+            processedString = processedString + "Bethlehem,+PA+18018";
 
         return processedString;
     }
@@ -38,35 +38,38 @@ public class MapsTest {
 
     public void createImage(String location) throws IOException {
         String crimeAddress = "";
+        System.out.println(location);
         HashMap locations = generateLocationList();
+        String staticLocation = "Haupert Union Building (HUB)";
+        String staticAddress = "";
         if(locations.get(location) != null){
             crimeAddress = (String) locations.get(location);
+            staticAddress = (String) locations.get(staticLocation);
             System.out.println(crimeAddress);
+            System.out.println(staticAddress);
 
         }
-        String desiredLocation = "Haupert Union Building (HUB)";
-        String desiredAddress = "1125 Monocacy St.";
 
-        String processedAddress = this.processString(desiredAddress, true);
+        String processedStaticAddress = this.processString(staticAddress, true);
         String processedCrimeAddress = this.processString(crimeAddress, true);
-        String processedDesiredLocation = this.processString(desiredLocation, false);
+        String processedDesiredLocation = this.processString(staticLocation, false);
 
         //Process data to create URL
-        String zoom = "16";
+        String zoom = "15";
         String crimeMarker = "flag-8B0000-EVENT";
         String locationMarker = "marker-lg-3B5998-22407F";
         String key = "UDxbwAfazAkmB9R6pD6gdkK9hCgVhAB1";
-        String center = desiredLocation;
+        String center = staticLocation;
         String typeOfMap = "map";
-        String banner = "Event+in+Relation+to+:+"+processedDesiredLocation+"|lg-top-3B5998-22407F";
+        String banner = "Event+in+Relation+to+:+The HUB|lg-top-3B5998-22407F";
         String size = "800,800";
 
-        System.out.println(processedAddress);
+        System.out.println(processedStaticAddress);
         System.out.println(processedCrimeAddress);
 
         String urlText = "https://www.mapquestapi.com/staticmap/v5/map?key="+key
-                +"&center="+processedAddress+"&locations="+processedCrimeAddress+"|"+
-                crimeMarker+"||"+processedAddress+"|"+locationMarker+"&zoom="+
+                +"&center="+processedStaticAddress+"&locations="+processedCrimeAddress+"|"+
+                crimeMarker+"||"+processedStaticAddress+"|"+locationMarker+"&zoom="+
                 zoom+"&banner="+banner+"&type="+typeOfMap+"&size="+size;
 
         URL url = new URL(urlText);

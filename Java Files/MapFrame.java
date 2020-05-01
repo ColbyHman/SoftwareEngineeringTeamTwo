@@ -13,15 +13,10 @@ public class MapFrame extends JFrame {
 
     private BufferedImage image;
 
-    public static void main(String[] args) {
-        MapFrame mp = new MapFrame();
-        mp.setVisible(true);
-    }
-
-    public MapFrame() {
+    public MapFrame(String location) {
         MapsTest mapsTest = new MapsTest();
         try {
-            mapsTest.createImage("1206 Main St.");
+            mapsTest.createImage(location);
             image = ImageIO.read(new File("resources/image.png"));
         } catch (IOException e) {
             e.printStackTrace();

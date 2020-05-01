@@ -9,12 +9,6 @@ import java.io.FileNotFoundException;
 
 public class Layout extends JFrame  {
 
-
-    public static void main(String[] args) throws FileNotFoundException {
-        Layout mylayout = new Layout();
-        mylayout.setVisible(true);
-    }
-
   public Layout() throws FileNotFoundException {
        setTitle("Please Enter a Description");
        setSize(950,470);
@@ -50,7 +44,8 @@ public class Layout extends JFrame  {
       enterb.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-              MapFrame map = new MapFrame();
+              String desiredLocation = loc1.desiredLocation;
+              MapFrame map = new MapFrame(desiredLocation);
               map.setVisible(true);
           }
       });
