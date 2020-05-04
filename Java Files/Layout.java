@@ -8,6 +8,9 @@ import java.io.FileNotFoundException;
 
 
 public class Layout extends JFrame  {
+    JTextArea field1 = new JTextArea(18,75);
+
+
 
   public Layout() throws FileNotFoundException {
        setTitle("Please Enter a Description");
@@ -15,11 +18,11 @@ public class Layout extends JFrame  {
        setLocation(100,100);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-      JTextArea field1 = new JTextArea(18,75);
+
+
 
       Container myContainer = this.getContentPane();
       myContainer.setLayout(new BorderLayout(10,10));
-      //this.getRootPane().setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.BLACK));
 
       JPanel desc = new JPanel();
       desc.setBorder(BorderFactory.createEtchedBorder());
@@ -35,6 +38,8 @@ public class Layout extends JFrame  {
       tips.add(loc1);
       myContainer.add(tips,BorderLayout.NORTH);
 
+
+
       JPanel enter = new JPanel();
       desc.setLayout(new FlowLayout());
       JButton enterb = new JButton("Enter");
@@ -45,7 +50,16 @@ public class Layout extends JFrame  {
           @Override
           public void actionPerformed(ActionEvent e) {
               String desiredLocation = loc1.desiredLocation;
+              String text = "";
+              String field = "Remember to always be alert and vigilant and report anything suspicious. \n" +
+                      "More information will be passed on as we are updated.  ";
+
+
+
               MapFrame map = new MapFrame(desiredLocation);
+              text = field1.getText();
+              map.appendText(text + "\n");
+              map.appendText(field);
               map.setVisible(true);
           }
       });
