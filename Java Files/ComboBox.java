@@ -33,6 +33,9 @@ public class ComboBox extends JPanel implements ActionListener {
         tiplist.addActionListener(this);
         loc1.setBounds(100, 100, 50, 50);
         loc1.setSelectedIndex(1);
+        loc1.addActionListener(this);
+        template.addActionListener(this);
+        template.setSelectedIndex(1);
         add(temptext);
         add(template);
         add(crimetext);
@@ -46,7 +49,8 @@ public class ComboBox extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loc1) {
             JComboBox c = (JComboBox) e.getSource();
-            this.desiredLocation = (String) c.getSelectedItem();
+            this.desiredLocation = c.getSelectedItem().toString();
+            System.out.println("Selected : "+this.desiredLocation);
         }
         else if (e.getSource() == template) {
             JComboBox c = (JComboBox) e.getSource();

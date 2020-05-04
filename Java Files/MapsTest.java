@@ -55,13 +55,13 @@ public class MapsTest {
         String processedDesiredLocation = this.processString(staticLocation, false);
 
         //Process data to create URL
-        String zoom = "15";
+        String zoom = "16";
         String crimeMarker = "flag-8B0000-EVENT";
         String locationMarker = "marker-lg-3B5998-22407F";
         String key = "UDxbwAfazAkmB9R6pD6gdkK9hCgVhAB1";
         String center = staticLocation;
         String typeOfMap = "map";
-        String banner = "Event+in+Relation+to+:+The HUB|lg-top-3B5998-22407F";
+        String banner = "Event+in+Relation+to+:+The+HUB||lg-top-3B5998-22407F";
         String size = "800,800";
 
         System.out.println(processedStaticAddress);

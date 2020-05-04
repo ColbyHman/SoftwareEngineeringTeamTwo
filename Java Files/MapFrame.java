@@ -21,7 +21,7 @@ public class MapFrame extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        JFrame frame = new JFrame("Test For Map Frame");
+        JFrame frame = new JFrame("Email Template");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
