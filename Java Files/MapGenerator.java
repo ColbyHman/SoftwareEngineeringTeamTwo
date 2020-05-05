@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.net.*;
 
-public class MapsTest {
+public class MapGenerator {
 
     public String processString(String string, Boolean bool){
 
@@ -25,7 +25,7 @@ public class MapsTest {
 
 
     public HashMap generateLocationList() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File("/Users/mecia@moravian.edu/Documents/DropDown/src/locations.csv"));
+        Scanner scanner = new Scanner(new File("resources/locations.csv"));
         HashMap locations = new HashMap();
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
@@ -42,6 +42,7 @@ public class MapsTest {
         HashMap locations = generateLocationList();
         String staticLocation = "Haupert Union Building (HUB)";
         String staticAddress = "";
+        System.out.println(locations);
         if(locations.get(location) != null){
             crimeAddress = (String) locations.get(location);
             staticAddress = (String) locations.get(staticLocation);
@@ -52,7 +53,6 @@ public class MapsTest {
 
         String processedStaticAddress = this.processString(staticAddress, true);
         String processedCrimeAddress = this.processString(crimeAddress, true);
-        String processedDesiredLocation = this.processString(staticLocation, false);
 
         //Process data to create URL
         String zoom = "16";
@@ -62,7 +62,7 @@ public class MapsTest {
         String center = staticLocation;
         String typeOfMap = "map";
         String banner = "Event+in+Relation+to+:+The+HUB||lg-top-3B5998-22407F";
-        String size = "800,800";
+        String size = "600,600";
 
         System.out.println(processedStaticAddress);
         System.out.println(processedCrimeAddress);
@@ -77,7 +77,7 @@ public class MapsTest {
         con.setRequestMethod("GET");
 
         InputStream inputStream = con.getInputStream();
-        FileOutputStream fileOutputStream = new FileOutputStream(new File("/Users/mecia@moravian.edu/Documents/DropDown/src/image.png"));
+        FileOutputStream fileOutputStream = new FileOutputStream(new File("resources/image.png"));
         int bytesRead = -1;
         byte[] buffer = new byte[1024];
         while ((bytesRead = inputStream.read(buffer)) != -1) {
